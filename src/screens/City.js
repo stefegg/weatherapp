@@ -8,8 +8,9 @@ import {
   View,
 } from "react-native";
 import IconText from "../components/IconText";
+import moment from "moment";
 
-const City = () => {
+const City = ({ weatherData }) => {
   const {
     container,
     imageLayout,
@@ -22,19 +23,20 @@ const City = () => {
     riseSetText,
     rowLayout,
   } = styles;
+  const { name, country, population, sunrise, sunset, timezone } = weatherData;
   return (
     <SafeAreaView style={container}>
       <ImageBackground
         source={require("../../assets/images/city-background.jpg")}
         style={imageLayout}
       >
-        <Text style={[cityName, cityText]}>London</Text>
-        <Text style={[countryName, cityText]}>UK</Text>
+        <Text style={[cityName, cityText]}>{name}</Text>
+        <Text style={[countryName, cityText]}>{country}</Text>
         <View style={[populationWrapper, rowLayout]}>
           <IconText
             iconName="user"
             iconColor="red"
-            bodyText="8000"
+            bodyText={`Population: ${population}`}
             bodyTextStyles={populatitonText}
           />
         </View>
@@ -42,13 +44,17 @@ const City = () => {
           <IconText
             iconName="sunrise"
             iconColor="white"
-            bodyText={"10:46:58am"}
+            bodyText={moment(sunrise * 1000)
+              .utcOffset(timezone / 60)
+              .format("h:mm a")}
             bodyTextStyles={riseSetText}
           />
           <IconText
             iconName="sunset"
             iconColor="white"
-            bodyText={"17:28:15pm"}
+            bodyText={moment(sunset * 1000)
+              .utcOffset(timezone / 60)
+              .format("h:mm a")}
             bodyTextStyles={riseSetText}
           />
         </View>
@@ -75,7 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
     fontWeight: "bold",
-    color: "white",
+    color: "indianred",
   },
   populationWrapper: {
     justifyContent: "center",
