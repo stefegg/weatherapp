@@ -3,8 +3,10 @@ import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import RowText from "../components/RowText";
 import { weatherType } from "../utilities/weatherType";
+// import { useGetWeather } from "../hooks/useGetWeather";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ weatherData }) => {
+  console.log(weatherData, "----------");
   const {
     wrapper,
     container,
