@@ -42,7 +42,6 @@ const TabLayout = () => {
         name={"city"}
         options={{
           title: "City",
-
           tabBarIcon: ({ color }) => (
             <Feather name={"home"} size={25} color={color} />
           ),
