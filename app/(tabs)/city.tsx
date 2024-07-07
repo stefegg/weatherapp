@@ -1,11 +1,12 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import CurrentWeather from "../../src/screens/CurrentWeather";
 
-const App = () => {
+import { View, StyleSheet } from "react-native";
+import City from "../../src/screens/City";
+
+const CityTab = () => {
   return (
     <View style={styles.container}>
-      <CurrentWeather />
+      <City />
     </View>
   );
 };
@@ -16,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default CityTab;

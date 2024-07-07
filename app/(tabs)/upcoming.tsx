@@ -1,11 +1,11 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import CurrentWeather from "../../src/screens/CurrentWeather";
+import UpcomingWeather from "../../src/screens/UpcomingWeather";
 
-const App = () => {
+const UpcomingTab = () => {
   return (
     <View style={styles.container}>
-      <CurrentWeather />
+      <UpcomingWeather />
     </View>
   );
 };
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default UpcomingTab;
